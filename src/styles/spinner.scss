@@ -1,0 +1,19 @@
+.loader {
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  border: 12px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid hsl(274deg, 82%, 60%); /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,130 @@
+@import "./App.css";
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 1.125rem;
+}
+.information__header {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.information__word {
+  font-weight: 700;
+  font-size: 4rem;
+}
+.information__phonetics {
+  color: hsl(274deg, 82%, 50%);
+}
+.information__play {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.information__meaning-part {
+  font-weight: bold;
+  font-style: italic;
+  position: relative;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  &::after {
+    content: "";
+    width: 90%;
+    height: 2px;
+    background-color: var(--text);
+    opacity: 0.1;
+    margin-left: 2rem;
+  }
+}
+.information__list {
+  list-style: none;
+  margin: 1rem;
+  li {
+    margin: 1rem 0;
+  }
+  li::before {
+    content: "\2022";
+    color: hsl(274deg, 82%, 60%);
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+  }
+}
+.information__syn {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  // p {
+  //   margin: 0 0.2rem;
+  // }
+  p:first-child {
+    color: gray;
+    opacity: 0.9;
+    margin-right: 0.2rem;
+  }
+}
+.information__syn-p {
+  color: hsl(274deg, 82%, 60%);
+  &:last-child::after {
+    content: "";
+  }
+  &::after {
+    content: ",";
+    margin-right: 0.2rem;
+  }
+}
+.information__example {
+  color: gray;
+  opacity: 0.9;
+}
+.information__antonyms {
+  display: flex;
+  margin-top: 3.5rem;
+  p:first-child {
+    color: gray;
+  }
+}
+.information__antonym {
+  margin-left: 0.2rem;
+}
+hr {
+  width: 100%;
+  margin: 1rem;
+  opacity: 0.5;
+}
+.information__source {
+  width: 100%;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  a {
+    display: flex;
+    margin-top: 0.2rem;
+    img {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .information__word {
+    font-size: 3rem;
+  }
+  .information__source,
+  .information__content,
+  .information__header {
+    padding: 0 1rem;
+  }
+  .information__list {
+    margin: 0.5rem;
+  }
+}

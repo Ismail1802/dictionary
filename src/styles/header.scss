@@ -1,0 +1,72 @@
+@import "./mixins.scss";
+@import "../index.scss";
+@import "./App.css";
+.header {
+  @include flexCenter;
+  justify-content: space-between;
+  padding-top: 56px;
+  width: 767px;
+  margin: 0 auto;
+}
+.header__content {
+  @include flexCenter;
+}
+.header__select {
+  position: relative;
+  cursor: pointer;
+  @include flexCenter;
+  gap: 1rem;
+  color: var(--text);
+  select {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+  }
+}
+.header__dropdown {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 2.5rem;
+  right: 0rem;
+  width: 9.5rem;
+  height: 120px;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  z-index: 2;
+  background-color: var(--bg);
+  box-shadow: var(--box-shadow);
+  p {
+    padding: 0.2rem 0.5rem;
+    &:hover {
+      color: hsl(274deg, 82%, 50%);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+.header__line {
+  width: 1px;
+  height: 47px;
+  background: black;
+  margin: 0 1rem;
+  opacity: 0.2;
+}
+.header__switch {
+  @include flexCenter;
+  gap: 1rem;
+}
+#serif {
+  font-family: "Lora", serif;
+}
+#mono {
+  font-family: "Inconsolata", monospace;
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: auto;
+    padding: 2rem 1rem;
+  }
+}
