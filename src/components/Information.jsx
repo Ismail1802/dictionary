@@ -9,14 +9,14 @@ const Information = React.memo(({ info }) => {
     const audio = phonetics[0].audio || phonetics[1].audio;
     new Audio(audio).play();
   };
-
+  console.log(sourceUrls);
   return (
     <article className="information">
       <div className="information__header">
         <div className="information__header-text">
           <p className="information__word">{word}</p>
           <p className="information__phonetics">
-            {phonetics[0].text || phonetics[1].text}
+            {phonetics[0]?.text || phonetics[1]?.text}
           </p>
         </div>
         <div className="information__header-play">
@@ -72,8 +72,8 @@ const Information = React.memo(({ info }) => {
       <hr />
       <div className="information__source">
         <p>Source</p>
-        <a target="_blank" href={sourceUrls}>
-          <p>{sourceUrls}</p>
+        <a target="_blank" href={sourceUrls[0]}>
+          <p>{sourceUrls[0]}</p>
           <img src={iconsNewWindow} alt="" />
         </a>
       </div>
