@@ -11,20 +11,60 @@ const Main = () => {
   const [inputValue, setInputValue] = useState("hello");
   const [submitValue, setSubmitValue] = useState("hello");
   const [info, setInfo] = useState();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetcher = async () => {
-      setLoading(true);
+    // setError(false);
+    // const fetcher = async () => {
+    //   setLoading(true);
+    //   const response = await fetch(
+    //     `https://api.dictionaryapi.dev/api/v2/entries/en/${submitValue}`
+    //   );
+    //   if (!response.ok) {
+    //     throw new Error("Could not find");
+    //   }
+    //   const data = await response.json();
+    //   if (data.title === "No Definitions Found") {
+    //     setLoading(false);
+    //     setError(true);
+    //   } else {
+    //     setInfo(data[0]);
+    //     setLoading(false);
+    //   }
+    // };
+    // try {
+    //   fetcher();
+    // } catch (error) {
+    //   alert(error);
+    // }
+    // fetcher();
 
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${submitValue}`
-      );
-      const data = await response.json();
-      setInfo(data[0]);
-      setLoading(false);
+    const dataFetcher = async () => {
+      setError(false);
+      const fetcher = async () => {
+        setLoading(true);
+        const response = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${submitValue}`
+        );
+        if (!response.ok) {
+          throw new Error("Could not find");
+        }
+        const data = await response.json();
+        if (data.title === "No Definitions Found") {
+          setLoading(false);
+          setError(true);
+        } else {
+          setInfo(data[0]);
+          setLoading(false);
+        }
+      };
+      try {
+        await fetcher();
+      } catch (e) {
+        setError(true);
+      }
     };
-
-    fetcher();
+    dataFetcher();
   }, [submitValue]);
 
   return (
@@ -34,7 +74,13 @@ const Main = () => {
         inputValue={inputValue}
         setInputValue={setInputValue}
       />
-      {loading ? <Spinner /> : <Information info={info} />}
+      {error ? (
+        <p className="error">Couldnt find info</p>
+      ) : loading ? (
+        <Spinner />
+      ) : (
+        <Information info={info} />
+      )}
     </>
   );
 };
