@@ -4,6 +4,7 @@
   --box-shadow: 0px 5px 30px hsl(274deg, 82%, 50%);
   --bg-dropdown: hsl(207, 26%, 17%);
   --input: hsl(0deg, 0%, 12%);
+  --error: rgb(20, 20, 20);
 }
 [data-theme="light"] {
   --bg: hsl(0, 0%, 100%);
@@ -11,6 +12,7 @@
   --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --bg-dropdown: white;
   --input: hsl(0deg, 0%, 96%);
+  --error: white;
 }
 .app {
   background-color: var(--bg);

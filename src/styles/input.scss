@@ -14,17 +14,27 @@ input {
     border: 2px solid hsl(274deg, 82%, 60%);
   }
 }
-
 label {
   position: relative;
 }
-label:before {
-  content: "";
+.iconssearch {
   position: absolute;
   top: 0;
-  right: 1rem;
-  bottom: 0;
-  width: 20px;
-  background: url("../assets/icon-search.svg");
-  background-repeat: no-repeat;
+  right: 2rem;
+  cursor: pointer;
+}
+.error {
+  margin-top: 1.5rem;
+  color: hsl(0, 67%, 44%);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.Toastify__toast {
+  background-color: var(--error) !important;
+  color: var(--text);
+}
+.Toastify__toast--error {
+  margin-bottom: 2rem !important;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

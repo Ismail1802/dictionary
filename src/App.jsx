@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./styles/App.css";
 function App() {
   const [mode, setMode] = useState(true);
+
   const [fontText, setFontText] = useState("Sans Serif");
   return (
     <div
